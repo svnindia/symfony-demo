@@ -148,7 +148,7 @@ class DefaultController extends Controller
     $user = $this->get('security.context')->getToken()->getUser();
     */
 
-    	return new Response('Autologin '.print_r($user,1));
+    	return new Response('Autologin ');
 	}
 	public function demologinAction($accesskey)
 	{

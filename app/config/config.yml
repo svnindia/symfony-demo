@@ -17,8 +17,33 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
-    session:         ~
     fragments:       ~
+    session:
+        handler_id:     session.handler.pdo
+
+parameters:
+    pdo.db_options:
+        db_table:    session
+        db_id_col:   session_id
+        db_data_col: session_value
+        db_time_col: session_time
+
+services:
+    pdo:
+        class: PDO
+        arguments:
+            dsn:      "mysql:dbname=%database_name%"
+            user:     %database_user%
+            password: %database_password%
+        calls:
+            - [setAttribute, [3, 2]] # \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
+
+    session.handler.pdo:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: ["@pdo", "%pdo.db_options%"]
+        
+        
+
 
 # Twig Configuration
 twig:
@@ -96,7 +121,7 @@ fos_rest:
     access_denied_listener:
         json: true
     body_listener: true
-    disable_csrf_role: ROLE_API
+    disable_csrf_role: IS_AUTHENTICATED_FULLY
 
 
 nelmio_api_doc:

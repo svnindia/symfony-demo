@@ -22,7 +22,7 @@ security:
                 login_path: /oauth/v2/auth/login
             anonymous:    true
         api:
-            pattern:    ^/api
+            pattern:    ^/api/v1
             fos_oauth:  true
             stateless:  true
         autologin:
