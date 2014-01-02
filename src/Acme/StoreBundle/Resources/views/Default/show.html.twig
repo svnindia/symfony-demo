@@ -1,0 +1,9 @@
+{% extends "AcmeStoreBundle::layout.html.twig" %}
+
+{% block title "Product " ~ name %}
+
+{% block content %}
+    <h1>Product Name {{ name }}!</h1>
+    <p> {{ description }}</p>
+    Price : {{ price }}
+{% endblock %}

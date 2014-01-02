@@ -1,0 +1,29 @@
+acme_store_homepage:
+    pattern:  /store/
+    defaults: { _controller: AcmeStoreBundle:Default:index }
+acme_store_new:
+    pattern:  /store/new
+    defaults: { _controller: AcmeStoreBundle:Default:new }
+acme_store_create:
+    pattern:  /store/create
+    defaults: { _controller: AcmeStoreBundle:Default:create }
+acme_store_show:
+    pattern:  /store/show/{id}
+    defaults: { _controller: AcmeStoreBundle:Default:show }
+acme_store_update:
+    pattern:  /store/update/{id}
+    defaults: { _controller: AcmeStoreBundle:Default:update }
+acme_store_delete:
+    pattern:  /store/delete/{id}
+    defaults: { _controller: AcmeStoreBundle:Default:delete }
+user_logout:
+       pattern:   /logout
+acme_store_autologin:
+    pattern:  /store/autologin
+    defaults: { _controller: AcmeStoreBundle:Default:autologin }
+acme_store_demologin:
+    pattern:  /store/demologin/{accesskey}
+    defaults: { _controller: AcmeStoreBundle:Default:demologin }
+hello_jsonp:
+    pattern: /liip/jsonp
+    defaults: { _controller: AcmeStoreBundle:Default:jsonp }

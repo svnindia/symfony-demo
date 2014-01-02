@@ -1,0 +1,48 @@
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+                check_path: /oauth/v2/auth/login_check
+                login_path: /oauth/v2/auth/login
+            anonymous:    true
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+        autologin:
+            pattern:    ^/store/autologin
+            fos_oauth:  true
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+            logout:       true
+            anonymous:    true
+        secured_area:
+            pattern:    ^/demo/secured/
+            anonymous: ~
+            http_basic:
+                realm: "You should have a user name and password"
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/store/, role: IS_AUTHENTICATED_ANONYMOUSLY }
