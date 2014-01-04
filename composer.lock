@@ -681,12 +681,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle.git",
-                "reference": "e9f96eec315e640d0d89840ed77b7e9268f7223d"
+                "reference": "f1334af288b3d81f312e58d5a888f488235cc740"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSOAuthServerBundle/zipball/e9f96eec315e640d0d89840ed77b7e9268f7223d",
-                "reference": "e9f96eec315e640d0d89840ed77b7e9268f7223d",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSOAuthServerBundle/zipball/f1334af288b3d81f312e58d5a888f488235cc740",
+                "reference": "f1334af288b3d81f312e58d5a888f488235cc740",
                 "shasum": ""
             },
             "require": {
@@ -710,6 +710,11 @@
                 "willdurand/propel-typehintable-behavior": "The Typehintable behavior is useful to add type hints on generated methods, to be compliant with interfaces"
             },
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "FOS\\OAuthServerBundle": ""
@@ -736,7 +741,7 @@
                 "oauth2",
                 "server"
             ],
-            "time": "2013-12-26 13:07:47"
+            "time": "2014-01-02 16:44:31"
         },
         {
             "name": "friendsofsymfony/oauth2-php",
